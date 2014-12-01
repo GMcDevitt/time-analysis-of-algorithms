@@ -9,8 +9,10 @@ import java.io.IOException;
 public class Main {
 
     public static void main(String[] args) throws IOException {
-        RunSortingAlgorithms runSortingAlgorithms = new RunSortingAlgorithms();
 
+
+		RunSortingAlgorithms runSortingAlgorithms = new RunSortingAlgorithms();
+        //These commands simply call the methods to run different sorting algorithms.
         runSortingAlgorithms.runBubbleSort();
         runSortingAlgorithms.runSelectionSort();
         runSortingAlgorithms.runInsertionsSort();

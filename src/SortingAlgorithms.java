@@ -7,13 +7,16 @@ public class SortingAlgorithms {
 
     /**
      *
+
      * @param numArray the array to be sorted
      */
-    public static void bubbleSort(int[] numArray) {
-
+//Create the bubble sort to sort the data
+	 public static void bubbleSort(int[] numArray) {
+//set the length of the array as an integer
         int n = numArray.length;
-        int temp;
-
+        //create a temp variable
+		int temp;
+//compare the int and evaluate, and sort
         for (int i = 0; i < n; i++) {
 
             for (int j = 1; j < (n - i); j++) {
@@ -36,8 +39,10 @@ public class SortingAlgorithms {
      *
      * @param numArray the array to be sorted
      */
-    public static void selectionSort(int[] numArray) {
-
+    
+	//Create the Selection sort method
+	public static void selectionSort(int[] numArray) {
+//Evaluate the current int and sort 
         for(int i=0; i < numArray.length - 1; i++){
 
             int min = i;
@@ -99,13 +104,14 @@ public class SortingAlgorithms {
         if (low >= high)
             return;
 
-        //pick the pivot
+        //pick the pivot point
         int middle = low + (high - low) / 2;
         int pivot = numArray[middle];
 
         //make left < pivot and right > pivot
         int i = low, j = high;
-        while (i <= j) {
+        //sort the data in each pivot point
+		while (i <= j) {
             while (numArray[i] < pivot) {
                 i++;
             }

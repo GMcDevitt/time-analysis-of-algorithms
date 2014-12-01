@@ -47,7 +47,7 @@ public class RunSortingAlgorithms {
      * @throws IOException
      */
     public RunSortingAlgorithms() throws IOException {
-        //If the report file does not exist
+        //If the report file does not exist it will be created.
         if(! Files.exists(new File("report.xlsx").toPath())) {
             this.report = new XSSFWorkbook();
             report.createSheet("Summary");
@@ -57,15 +57,15 @@ public class RunSortingAlgorithms {
             report.createSheet("Quick Sort");
             report.createSheet("Merge Sort");
         } else {
-            //Otherwise get the file
+            //Otherwise get the file and write data to it.
             this.report = new XSSFWorkbook(new FileInputStream(new File("report.xlsx")));
         }
     }
 
     public void runBubbleSort() throws FileNotFoundException {
-        //What row im on
+        //What row the info is being placed in.
         int rowNumber = 1;
-        //What column im on
+        //What column the info is being placed in
         int columnNumber;
         Row row;
         writeSheet("Bubble Sort");
@@ -73,7 +73,7 @@ public class RunSortingAlgorithms {
 
         //Run the sort 10 times for each set of arrays
         for (int i = 0; i < 10; i++) {
-            //For each array
+            //For each array run the sort
             for (int k = 0; k < 3; k++) {
                 //Get the next array
                 int[] array = list.get(k);
@@ -81,17 +81,17 @@ public class RunSortingAlgorithms {
                 for (int j = 0; j < array.length; j++) {
                     array[j] = (int) (Math.random() * 1000000);
                 }
-                //Get the start time
+                //Get the start time of the sort
                 startTime = System.nanoTime();
                 //Call the sort
                 SortingAlgorithms.bubbleSort(array);
-                //Get the end time
+                //Get the end time of the sort
                 endTime = System.nanoTime();
                 //Get time in milliseconds by subtracting the two times and dividing by 1000000
                 duration = (endTime - startTime)/1000000;
-                //Start on the pass column
+                //Start on the pass column to keep track of how many times the data is run.
                 columnNumber = 0;
-                //Create data row
+                //Create data rows 
                 row = sheet.createRow(rowNumber);
                 //Pass number
                 row.createCell(columnNumber).setCellValue(i + 1);
@@ -329,7 +329,7 @@ public class RunSortingAlgorithms {
         Row row;
         Sheet sheet = report.getSheet(sheetName);
 
-        //Create Headers
+        //Create Headers for the excel data
         row = sheet.createRow(rowNumber);
         row.createCell(columnNumber).setCellValue("Pass");
         columnNumber++;
