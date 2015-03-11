@@ -34,7 +34,6 @@ public class RunSortingAlgorithms {
 
     //Excel workbook used for reporting
     public XSSFWorkbook report;
-
     //Start time for a sort
     public static long startTime;
     //End time for a sort
@@ -91,7 +90,7 @@ public class RunSortingAlgorithms {
                 duration = (endTime - startTime)/1000000;
                 //Start on the pass column to keep track of how many times the data is run.
                 columnNumber = 0;
-                //Create data rows 
+                //Create data rows
                 row = sheet.createRow(rowNumber);
                 //Pass number
                 row.createCell(columnNumber).setCellValue(i + 1);
